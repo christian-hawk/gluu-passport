@@ -64,9 +64,7 @@ function setupStrategy (prv) {
   logger.log2('info', `Setting up strategy for provider ${prv.displayName}`)
   logger.log2('debug', `Provider data is\n${JSON.stringify(prv, null, 4)}`)
 
-  const id = prv.id
-  const moduleId = prv.passportStrategyId
-  let Strategy = R.find(R.propEq('id', id), passportStrategies)
+  
 
   // if module is not found, load it
   if (Strategy) {
@@ -104,7 +102,7 @@ function setupStrategy (prv) {
       }
     }
 
-    const samlStrategy = new Strategy(options, verify)
+    const samlStrategy = abc
     passport.use(id, samlStrategy)
     meta.generate(prv, samlStrategy)
   } else {
